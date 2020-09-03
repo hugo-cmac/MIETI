@@ -1,0 +1,11 @@
+     Ficheiro		   Encoder		   Zip(normal)		 Zip(optimizado)
+texto.txt - 5.34mb	 217ms -  3.23mb	 746ms -  2.03mb	 200ms -  2.39mb
+music.mp3 - 20,08mb	 703ms - 20,08mb	1393ms - 20.00mb	1331ms - 20.01mb
+music.flac- 50,90mb	1622ms - 51,08mb	2885ms - 50.91mb	2714ms - 50.91mb
+music.wav - 88.54mb	3442ms - 86.31mb	6079ms - 85.89mb	5822ms - 85.97mb
+
+     Ficheiro		   Decoder		  Unzip(normal)		Unzip(optimizado)
+     texto.txt		    177ms	 	      88ms		      94ms
+     music.mp3 		    523ms		     288ms		     288ms
+     music.flac		   1060ms		     541ms		     554ms
+     music.wav		   2872ms		    1348ms		    1384ms
