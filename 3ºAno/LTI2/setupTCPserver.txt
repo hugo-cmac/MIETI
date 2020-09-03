@@ -1,0 +1,9 @@
+Setup log file created.
+Config file read.
+DataBase creation successful.
+TCP socket file descriptor created.
+Socket bind successful.
+Listen successful.
+Waiting new connection.
+Client 1 Socket creation successful.
+Forced Exit

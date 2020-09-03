@@ -1,0 +1,22 @@
+Setup log file created.
+Config file read.
+UDP socket file descriptor created.
+UDP Server information filled:
+-IPV4;
+-IP Address;
+-PORT NUMBER: 11111.
+TCP Server information filled:
+-IPV4;
+-IP Address: 10.42.0.1;
+-PORT NUMBER: 15000.
+Socket binded with the server address.
+TCP socket file descriptor created.
+TCP Server information filled:
+-IPV4;
+-IP Address;
+-PORT NUMBER: 15000.
+TCP connection with server successful.
+System 1-CONNECTED.
+Start message sent to System nr 1.
+Stop message sent to System nr 1.
+Exit SYSTEM
