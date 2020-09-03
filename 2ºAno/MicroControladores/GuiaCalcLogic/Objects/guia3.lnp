@@ -1,0 +1,4 @@
+".\Objects\streetz.obj",
+".\serie.obj" 
+TO ".\Objects\guia3" 
+PRINT(".\Listings\guia3.m51") RAMSIZE(256) 
