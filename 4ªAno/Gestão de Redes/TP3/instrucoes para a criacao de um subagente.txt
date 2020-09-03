@@ -1,0 +1,61 @@
+1 - Escrever MIB
+
+2 - 	$smilint -l 4 -s ./HOST-MUSIC-MIB.txt
+	
+	Este comando compila a mib e diz se temos erros ou nao.
+
+3 - Se a MIB estiver correta, vamos coloca-la no path onde estão as outras mibs,
+	
+	$net-snmp-config --default-mibdirs, com este comando sabemos em diretoria estao 
+	as configuracoes do snmp.
+	Neste caso elas estão em /usr/local/share/snmp/mibs
+4 - Depois de colocar a MIB junto das outras, temos de configurar a nosso agente para a ler 	quando a sessao é iniciada, para isto adicionamos ao ficheiro 
+    /usr/local/share/snmp/snmp.conf a seguinte linha:
+		mibs +HOST-MUSIC-MIB
+	esse é o nome da definicao da MIB.
+	Apartir deste momento se reniciarmos o snmp ele passa incluir a nossa MIB.
+
+5 - Agora temos de fazer o nosso agente para preencher a nossa MIB. Vamos usar um recurso disponibilizado pelo proprio snmp, o mib2c. Para vermos a nossa MIB no formato de arvore usamos os comando $snmptranslate -Tp -IR hostMusicMIB
+
+6 - Vamos criar uma pasta para o nosso projeto chamada de hostmusicmibFINAL/ e vamos colocar ai a nossa MIB.
+
+7 - Agora corremos os seguintes comandos:
+	$mib2c -c mib2c.scalar.conf hostMusicMIB
+	$mib2c -c subagent.m2c agentxTutorial
+
+	Escrever output..
+
+	Estes comandos geraram o subagente e o codigo necessario para trabalhar com os escalar 		existentes na nossa MIB.
+
+8 - Depois é necessario alterar os handlers dos nossos objetos para fazerem o que nos queremos.
+
+9 - De seguida vamos criar os codigos para as nossas tabelas.
+	Usamos o seguinte comando para cada tabela:
+
+	 $mib2c -c mib2c.mfd.conf hmAllMusicTable
+
+	escrever output
+
+10 - Depois se abrir mos o ficheiro hmAllMusicTable_data_acess.c, na funcao
+	hmAllMusicTable_init_data(), temos definir a colunas do a nossa tabela.
+	
+	Na funcao mAllMusicTable_container_load(), verificamos que o preenchemento das tabelas
+	parte da leitura de um ficheiro, portanto é necessario escrever nesse ficheiro, ou 
+	construir aí um codigo para ler informacao que queremos apresentar na MIB.
+	
+	Temos tambem uma macro HMALLMUSICTABLE_CACHE_TIMEOUT, onde podemos definir de quanto
+	em quanto tempo a a tabela é atualizada
+	
+11 - Após este passos necessitamos de avisar o snmpd que existe um subagente, para isto no 
+	ficheiro /usr/local/share/snmp/snmpd.conf adicionamos uma linha com o seguinte:
+	
+	master agentx
+
+12 - Por fim é necessario contruir um makefile, para compilar o projeto todo
+
+	$make -f hostMusicMIB_makefile
+
+	e depois corremos o agente com o seguinte comando:
+
+	$sudo ./hostMusicMIB -f
+

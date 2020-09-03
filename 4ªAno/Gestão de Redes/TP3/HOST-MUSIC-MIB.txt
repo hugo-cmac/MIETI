@@ -1,0 +1,422 @@
+HOST-MUSIC-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        OBJECT-GROUP FROM SNMPv2-CONF
+
+        DisplayString FROM SNMPv2-TC
+        
+        experimental, OBJECT-TYPE, Integer32, MODULE-IDENTITY FROM SNMPv2-SMI
+    ;
+
+
+
+hostMusicMIB MODULE-IDENTITY
+    LAST-UPDATED "202001090000Z"
+    ORGANIZATION "Mieti - Gestao de Redes"
+    CONTACT-INFO    
+        "postal:   Azurem  
+        email:    mieti@eng.uminho.pt"
+    DESCRIPTION
+        "MIB de um servidor Musical."
+    REVISION
+        "202001090000Z"
+    DESCRIPTION
+        "Primeira revisao para adicionar os ConformenceGroups."
+    ::={experimental 2020}
+
+
+hmAllMusic     		    OBJECT IDENTIFIER ::= { hostMusicMIB 1 }
+hmStyle        		    OBJECT IDENTIFIER ::= { hostMusicMIB 2 }
+hmArtist       		    OBJECT IDENTIFIER ::= { hostMusicMIB 3 }
+hmAlbum        		    OBJECT IDENTIFIER ::= { hostMusicMIB 4 }
+hmFormat       		    OBJECT IDENTIFIER ::= { hostMusicMIB 5 }
+hmPlay         		    OBJECT IDENTIFIER ::= { hostMusicMIB 6 }
+hmConformenceGroups 	OBJECT IDENTIFIER ::= { hostMusicMIB 7 }
+
+---
+--- The Host Music All Music Group
+---
+
+hmAllMusicTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF HmAllMusicEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Tabela das Musicas existentes no servidor."
+    ::= { hmAllMusic 1 }
+
+hmAllMusicEntry OBJECT-TYPE
+    SYNTAX     HmAllMusicEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Entrada de cada linha da tabela."
+    INDEX { hmAllMusicIndex }
+    ::= { hmAllMusicTable 1 }
+
+HmAllMusicEntry ::= SEQUENCE {
+        hmAllMusicIndex                 Integer32,
+        hmAllMusicStyle                 Integer32,
+        hmAllMusicArtist                Integer32,
+        hmAllMusicAlbum                 Integer32,
+        hmAllMusicName                  DisplayString,
+        hmAllMusicDuration              Integer32,
+        hmAllMusicSize                  Integer32,
+        hmAllMusicFormat                Integer32
+    }
+
+hmAllMusicIndex OBJECT-TYPE
+    SYNTAX     Integer32 (1..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Numero de identificacao de musica."
+    ::= { hmAllMusicEntry 1 }
+
+hmAllMusicStyle OBJECT-TYPE
+    SYNTAX     Integer32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Numero correspondente ao estilo de musica na hmStyleTable."
+    ::= { hmAllMusicEntry 2 }
+
+hmAllMusicArtist OBJECT-TYPE
+    SYNTAX     Integer32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Numero correspondente ao artista da musica na hmArtistTable."
+    ::= { hmAllMusicEntry 3 }
+
+hmAllMusicAlbum OBJECT-TYPE
+    SYNTAX     Integer32
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Numero correspondente ao album da musica na hmAlbumTable."
+    ::= { hmAllMusicEntry 4 }
+
+hmAllMusicName OBJECT-TYPE
+    SYNTAX     DisplayString
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Nome da musica."
+    ::= { hmAllMusicEntry 5 }
+
+hmAllMusicDuration OBJECT-TYPE
+    SYNTAX     Integer32 (0..2147483647)
+    UNITS      "Seconds"
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Duracao da musica."
+    ::= { hmAllMusicEntry 6 }
+
+hmAllMusicSize OBJECT-TYPE
+    SYNTAX     Integer32 (0..2147483647)
+    UNITS      "Bytes"
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Tamanho digital da musica."
+    ::= { hmAllMusicEntry 7 }
+
+hmAllMusicFormat OBJECT-TYPE
+    SYNTAX     Integer32 (0..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Numero correspondente ao formato da musica na hmFormatTable."
+    ::= { hmAllMusicEntry 8 }
+
+--
+-- The Host Music Styles Group
+--
+
+hmStyleTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF HmStyleEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Tabela dos estilos de Musicas existentes no servidor."
+    ::= { hmStyle 1 }
+
+hmStyleEntry OBJECT-TYPE
+    SYNTAX     HmStyleEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Entrada de cada estilo de musica."
+    INDEX { hmStyleIndex }
+    ::= { hmStyleTable 1 }
+
+HmStyleEntry ::= SEQUENCE {
+        hmStyleIndex                Integer32,
+        hmStyleDescr                DisplayString
+    }
+
+hmStyleIndex OBJECT-TYPE
+    SYNTAX     Integer32 (1..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Identificacao de cada estilo."
+    ::= { hmStyleEntry 1 }
+
+hmStyleDescr OBJECT-TYPE
+    SYNTAX     DisplayString
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Descricao do estilo."
+    ::= { hmStyleEntry 2 }
+
+---
+--- The Host Music Artist Group
+---
+
+hmArtistTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF HmArtistEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Tabela de artistas."
+    ::= { hmArtist 1 }
+
+hmArtistEntry OBJECT-TYPE
+    SYNTAX     HmArtistEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Entrada de cada artista."
+    INDEX { hmArtistIndex }
+    ::= { hmArtistTable 1 }
+
+HmArtistEntry ::= SEQUENCE {
+        hmArtistIndex           Integer32,
+        hmArtistDescr           DisplayString
+    }
+
+hmArtistIndex OBJECT-TYPE
+    SYNTAX     Integer32 (1..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Identificacao de cada artista."
+    ::= { hmArtistEntry 1 }
+
+hmArtistDescr OBJECT-TYPE
+    SYNTAX     DisplayString 
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Descricao do artista."
+    ::= { hmArtistEntry 2 }
+
+---
+--- The Host Music Albums Group
+---
+
+hmAlbumTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF HmAlbumEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Tabela de albuns."
+    ::= { hmAlbum 1 }
+
+hmAlbumEntry OBJECT-TYPE
+    SYNTAX     HmAlbumEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Entrada de cada album."
+    INDEX { hmAlbumIndex }
+    ::= { hmAlbumTable 1 }
+
+HmAlbumEntry ::= SEQUENCE {
+        hmAlbumIndex       Integer32,
+        hmAlbumDescr       DisplayString
+    }
+
+hmAlbumIndex OBJECT-TYPE
+    SYNTAX     Integer32 (1..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Identificacao de cada album."
+    ::= { hmAlbumEntry 1 }
+
+hmAlbumDescr OBJECT-TYPE
+    SYNTAX     DisplayString
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Descricao do album."
+    ::= { hmAlbumEntry 2 }
+
+---
+--- The Host Music Format Group
+---
+
+hmFormatTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF HmFormatEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Tabela dos formatos existentes no servidor."
+    ::= { hmFormat 1 }
+
+hmFormatEntry OBJECT-TYPE
+    SYNTAX     HmFormatEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Entrada de cada formato."
+    INDEX { hmFormatIndex }
+    ::= { hmFormatTable 1 }
+
+HmFormatEntry ::= SEQUENCE {
+        hmFormatIndex         Integer32,
+        hmFormatDescr         DisplayString
+        }
+
+hmFormatIndex OBJECT-TYPE
+    SYNTAX     Integer32 (1..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Identificacao de cada formato."
+    ::= { hmFormatEntry 1 }
+
+hmFormatDescr OBJECT-TYPE
+    SYNTAX     DisplayString
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Descricao do formato."
+    ::= { hmFormatEntry 2 }
+
+
+---
+--- The Host Music Play Group
+---
+
+hmPlaylistTable OBJECT-TYPE
+    SYNTAX     SEQUENCE OF HmPlaylistEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Tabela dos formatos existentes no servidor."
+    ::= { hmPlay 1 }
+
+hmPlaylistEntry OBJECT-TYPE
+    SYNTAX     HmPlaylistEntry
+    MAX-ACCESS not-accessible
+    STATUS     current
+    DESCRIPTION
+        "Entrada de cada formato."
+    INDEX { hmPlaylistIndex }
+    ::= { hmPlaylistTable 1 }
+
+HmPlaylistEntry ::= SEQUENCE {
+        hmPlaylistIndex         Integer32
+        }
+
+hmPlaylistIndex OBJECT-TYPE
+    SYNTAX     Integer32 (1..2147483647)
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Identificacao de cada formato."
+    ::= { hmPlaylistEntry 1 }
+
+
+hmPlayMusic OBJECT-TYPE
+    SYNTAX     Integer32 (0..2147483647)
+    MAX-ACCESS read-write
+    STATUS     current
+    DESCRIPTION
+        "Numero da musica para tocar. Se meter 0 a
+         musica termina. E limpa Playlist."
+    ::= { hmPlay 2 }
+
+hmAddtoPlaylist OBJECT-TYPE
+    SYNTAX     Integer32 (1..2147483647)
+    MAX-ACCESS read-write
+    STATUS     current
+    DESCRIPTION
+        "Adicionar a playlist."
+    ::= { hmPlay 3 }
+
+hmPlayStatus OBJECT-TYPE
+    SYNTAX     INTEGER {
+                    off(0),
+                    playing(1)
+               }
+    MAX-ACCESS read-only
+    STATUS     current
+    DESCRIPTION
+        "Variavel para saber se alguma musica esta a tocar."
+    ::= { hmPlay 4 }
+
+---
+--- Conformance Groups
+---
+
+hmScalarGroups OBJECT-GROUP
+    OBJECTS { hmPlayMusic, hmAddtoPlaylist, hmPlayStatus }
+        STATUS      current
+        DESCRIPTION
+            "Grupo de escalares."
+        ::= { hmConformenceGroups 1 }
+
+hmAllMusicTableGroup OBJECT-GROUP
+    OBJECTS { hmAllMusicIndex,  hmAllMusicStyle, 
+              hmAllMusicArtist, hmAllMusicAlbum, 
+              hmAllMusicName,   hmAllMusicDuration, 
+              hmAllMusicSize,   hmAllMusicFormat }
+    STATUS      current
+    DESCRIPTION
+        "Grupo da tabela com todas as musicas."
+    ::= { hmConformenceGroups 2 }
+
+hmStyleTableGroup OBJECT-GROUP
+    OBJECTS { hmStyleIndex,  hmStyleDescr }
+    STATUS      current
+    DESCRIPTION
+        "Grupo da tabela com todos os estilos."
+    ::= { hmConformenceGroups 3 }
+
+hmArtistTableGroup OBJECT-GROUP
+    OBJECTS { hmArtistIndex,  hmArtistDescr }
+    STATUS      current
+    DESCRIPTION
+        "Grupo da tabela com todos os artistas."
+    ::= { hmConformenceGroups 4 }
+
+hmAlbumTableGroup OBJECT-GROUP
+    OBJECTS { hmAlbumIndex,  hmAlbumDescr }
+    STATUS      current
+    DESCRIPTION
+        "Grupo da tabela com todos os albuns."
+    ::= { hmConformenceGroups 5 }
+
+hmFormatTableGroup OBJECT-GROUP
+    OBJECTS { hmFormatIndex,  hmFormatDescr }
+    STATUS      current
+    DESCRIPTION
+        "Grupo da tabela com todos os formatos."
+    ::= { hmConformenceGroups 6 }
+
+hmPlaylistTableGroup OBJECT-GROUP
+    OBJECTS { hmPlaylistIndex}
+    STATUS      current
+    DESCRIPTION
+        "Grupo da tabela com as musicas selecionadas para a playlist."
+    ::= { hmConformenceGroups 7 }
+
+
+END

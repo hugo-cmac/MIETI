@@ -1,0 +1,72 @@
+
+CC=gcc
+TABLE_PREFIX=hostMusicMIB
+
+NETSNMPCONFIG=net-snmp-config
+
+
+NETSNMPCFLAGS := $(shell $(NETSNMPCONFIG) --base-cflags)
+NETSNMPLIBS := $(shell $(NETSNMPCONFIG) --agent-libs)
+NETSNMPCFLAGS=`$(NETSNMPCONFIG) --base-cflags`
+NETSNMPLIBS=`$(NETSNMPCONFIG) --agent-libs`
+
+LIBS=$(NETSNMPLIBS)
+
+STRICT_FLAGS = -Wall -Wstrict-prototypes
+CFLAGS=-I. -I./include -I./include/hmAlbumTable -I./include/hmAllMusicTable -I./include/hmArtistTable -I./include/hmFormatTable -I./include/hmStyleTable -I./include/hmPlaylistTable $(NETSNMPCFLAGS) $(STRICT_FLAGS)
+
+USER_OBJS = \
+	src/hmAlbumTable/hmAlbumTable_data_get.o \
+	src/hmAlbumTable/hmAlbumTable_data_set.o \
+	src/hmAlbumTable/hmAlbumTable_data_access.o\
+	src/hmAllMusicTable/hmAllMusicTable_data_get.o \
+	src/hmAllMusicTable/hmAllMusicTable_data_set.o \
+	src/hmAllMusicTable/hmAllMusicTable_data_access.o\
+	src/hmArtistTable/hmArtistTable_data_get.o \
+	src/hmArtistTable/hmArtistTable_data_set.o \
+	src/hmArtistTable/hmArtistTable_data_access.o\
+	src/hmFormatTable/hmFormatTable_data_get.o \
+	src/hmFormatTable/hmFormatTable_data_set.o \
+	src/hmFormatTable/hmFormatTable_data_access.o\
+	src/hmStyleTable/hmStyleTable_data_get.o \
+	src/hmStyleTable/hmStyleTable_data_set.o \
+	src/hmStyleTable/hmStyleTable_data_access.o \
+	src/hmPlaylistTable/hmPlaylistTable_data_get.o \
+	src/hmPlaylistTable/hmPlaylistTable_data_set.o \
+	src/hmPlaylistTable/hmPlaylistTable_data_access.o 
+
+
+OBJS =  $(USER_OBJS) \
+	src/$(TABLE_PREFIX).o \
+	src/$(TABLE_PREFIX)_subagent.o \
+	src/hmAlbumTable/hmAlbumTable.o \
+	src/hmAlbumTable/hmAlbumTable_interface.o \
+	src/hmAllMusicTable/hmAllMusicTable.o \
+	src/hmAllMusicTable/hmAllMusicTable_interface.o \
+	src/hmArtistTable/hmArtistTable.o \
+	src/hmArtistTable/hmArtistTable_interface.o \
+	src/hmFormatTable/hmFormatTable.o \
+	src/hmFormatTable/hmFormatTable_interface.o \
+	src/hmStyleTable/hmStyleTable.o \
+	src/hmStyleTable/hmStyleTable_interface.o \
+	src/hmPlaylistTable/hmPlaylistTable.o \
+	src/hmPlaylistTable/hmPlaylistTable_interface.o 
+
+
+TARGETS=$(TABLE_PREFIX)
+
+.SUFFIXES:
+.SUFFIXES: .c .o .deps
+
+all: $(TARGETS)
+
+user: $(USER_OBJS)
+
+$(TARGETS): $(LIB_DEPS)
+
+$(TABLE_PREFIX): $(OBJS) $(TABLE_PREFIX)_Makefile
+	$(CC) -o $(TABLE_PREFIX) $(OBJS) $(LIBS)
+
+clean:
+	rm -f $(OBJS) $(TARGETS)
+

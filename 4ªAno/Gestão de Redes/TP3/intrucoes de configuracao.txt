@@ -1,0 +1,23 @@
+Instrucoes de uso( maquinas linux apenas ):
+	
+	1.Verificar instalacao do vlc, do SNMP e a sua configuracao;
+	2.Verificar a existencia do compilador de C;
+	3.Mover a MIB(HOST-MUSIC-MIB.txt) para a diretoria das restantes MIB's:
+		/usr/local/share/snmp/mibs/ - Pode ser outra diretoria
+	4.Adicionar a seguinte linha no ficheiro /usr/local/share/snmp/snmp.conf:
+		mibs +HOST-MUSIC-MIB
+	5.Adicionar permissoes de escrita ao agente e permissoes para o sub-agente funcionar:
+		Escrever no ficheiro /usr/local/share/snmp/snmpd.conf
+			rwcommunity  public localhost 
+			master agentx
+	5.Verificar a instalacao do Python3, e instalar um modulo com o seguinte comando:
+		sudo pip3 install mutagen
+	6.É necessario criar uma diretoria na seguinte localizacao:
+		/etc/hostmusicmib.conf/
+	7.No codigo python é necessario alterar a localizacao das musicas, na variavel "folder".
+	8.Antes de iniciar o sub-agente, convem executar o codigo python na primeira vez. Com comando :
+		python3 musicFinder.py
+	9.Depois temos de compilar o sub-agente com o seguinte comando.
+		sudo make -f hostMusicMIB_Makefile
+	10.Por fim reiniciamos o agente da maquina. E depois executamos o nosso sub-agente, com o comando:
+		sudo ./hostMusicMIB -f
