@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -eq 3 ];
+then
+    S='/tmp/pycore.'$1'/n'$2'.xy'
+    gcc car.c -Wall -L/usr/lib -lssl -lcrypto
+    ./a.out $S $3
+    rm a.out
+fi

@@ -1,0 +1,25 @@
+$TTL    604800
+$ORIGIN auto.pt.
+
+@       IN      SOA     imtt.auto.pt. root.imtt.auto.pt. (
+                              6         ; Serial
+                         604820         ; Refresh
+                          86600         ; Retry
+                        2419600         ; Expire
+                         604600 )       ; Negative Cache TTL
+
+;Name Server Information
+@       IN      NS      imtt.auto.pt.
+
+;IP address of Your Domain Name Server(DNS)
+imtt	  IN      AAAA	  2001:690:2280:820:1000::20
+
+;A Record for Host names
+www	    IN	    AAAA	  2001:690:2280:820:1000::20
+@	      IN 	    AAAA	  2001:690:2280:820:1000::20
+VMW     IN      AAAA	  2001:690:2280:821:1000::10
+VOLKS   IN      AAAA    2001:690:2280:823:1000::10
+11BM11  IN      AAAA    2001:690:2280:822:200:ff:feaa:29
+22BM22  IN      AAAA    2001:690:2280:822:200:ff:feaa:17
+11VW11  IN      AAAA    2001:690:2280:824:200:ff:feaa:2a
+22VW22  IN      AAAA    2001:690:2280:824:200:ff:feaa:2b

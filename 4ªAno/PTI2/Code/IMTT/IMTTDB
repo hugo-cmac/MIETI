@@ -1,0 +1,23 @@
+DROP DATABASE if exists IMTTDB;
+CREATE DATABASE IMTTDB;
+USE IMTTDB;
+
+CREATE TABLE imttAlerts(
+        id              int             NOT NULL,
+        prio            boolean         NOT NULL,
+        init            timestamp       NOT NULL,
+        ttl             int             NOT NULL,
+        coordX          int,
+        coordY          int,
+        info            varchar(150)    NOT NULL,
+        PRIMARY KEY (id)
+);
+
+CREATE TABLE imttCars(
+        registration    varchar(8)      NOT NULL,
+        brand           varchar(6)      NOT NULL,
+        model           varchar(45),
+        owner           varchar(45)     NOT NULL,
+        date            date            NOT NULL,
+        PRIMARY KEY (registration)
+);

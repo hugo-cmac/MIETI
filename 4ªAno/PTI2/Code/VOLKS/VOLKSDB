@@ -1,0 +1,24 @@
+DROP DATABASE if exists volksDB;
+CREATE DATABASE volksDB;
+USE volksDB;
+
+CREATE TABLE volksEvents(
+       id              int             NOT NULL,
+       alert           boolean         NOT NULL, /*1-Alerta, 0-Serviços*/
+       prio            boolean         NOT NULL, 
+       dest            varchar(8),
+       init            timestamp       NOT NULL,
+       ttl             int,
+       coordX          int,
+       coordY          int,
+       info            varchar(150)    NOT NULL,
+       PRIMARY KEY(id, alert, init)
+);
+
+CREATE TABLE volksCars(
+       registration    varchar(8)      NOT NULL,
+       model           varchar(45),
+       owner           varchar(45)     NOT NULL,
+       date            date            NOT NULL,
+       PRIMARY KEY (registration)
+);

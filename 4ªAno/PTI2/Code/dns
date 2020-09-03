@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ $1 == "start" ];
+then
+    echo 'nameserver 2001:690:2280:820:1000::20' > /etc/resolv.conf
+    echo '$TTL    604800
+$ORIGIN auto.pt.
+
+@       IN      SOA     imtt.auto.pt. root.imtt.auto.pt. (
+                              6         ; Serial
+                         604820         ; Refresh
+                          86600         ; Retry
+                        2419600         ; Expire
+                         604600 )       ; Negative Cache TTL
+
+;Name Server Information
+@       IN      NS      imtt.auto.pt.
+
+;IP address of Your Domain Name Server(DNS)
+imtt	IN      AAAA	2001:690:2280:820:1000::20
+
+;A Record for Host names
+www	IN	AAAA	2001:690:2280:820:1000::20
+@	IN      AAAA	2001:690:2280:820:1000::20' > /etc/bind/db.auto.pt
+
+elif [ $1 == "stop" ]; then
+    echo 'nameserver 8.8.8.8' > /etc/resolv.conf
+fi

@@ -1,0 +1,85 @@
+ficheiro: /etc/mysql/mysql.conf.d/mysqld.cnf
+adicionar:
+[mysqld_safe]
+socket		= /var/run/mysqld/mysqld.sock
+nice		= 0
+
+[mysqld_multi]
+mysqld     = /usr/bin/mysqld_safe
+mysqladmin = /usr/bin/mysqladmin
+user       = multi_admin
+password   = multipass
+
+[mysqld]
+user		= mysql
+pid-file	= /var/run/mysqld/mysqld.pid
+socket		= /var/run/mysqld/mysqld.sock
+port		= 3306
+basedir		= /usr
+datadir		= /var/lib/mysql
+tmpdir		= /tmp
+lc-messages-dir	= /usr/share/mysql
+skip-external-locking
+
+[mysqld1]
+user		  = mysql
+pid-file	= /var/run/mysqld1/mysqld1.pid
+socket		= /var/run/mysqld1/mysqld1.sock
+port		  = 3307
+basedir		= /usr
+datadir		= /var/lib/mysql1
+tmpdir		= /tmp
+lc-messages-dir	= /usr/share/mysql
+skip-external-locking
+
+[mysqld2]
+user		  = mysql
+pid-file	= /var/run/mysqld2/mysqld2.pid
+socket		= /var/run/mysqld2/mysqld2.sock
+port		  = 3308
+basedir		= /usr
+datadir		= /var/lib/mysql2
+tmpdir		= /tmp
+lc-messages-dir	= /usr/share/mysql
+skip-external-locking
+------------------------------------------------------------------------------------------
+ficheiro: /etc/apparmor.d/usr.sbin.mysqld
+adicionar:
+# Allow config access
+  /etc/mysql/** r,
+  /var/lib/mysql1 r,
+  /var/lib/mysql1/** rwk,
+  /var/lib/mysql2 r,
+  /var/lib/mysql2/** rwk,
+
+# Allow pid, socket, socket lock file access
+  /var/run/mysqld/mysqld.pid rw,
+  /var/run/mysqld/mysqld.sock rw,
+  /var/run/mysqld/mysqld.sock.lock rw,
+  /run/mysqld/mysqld.pid rw,
+  /run/mysqld/mysqld.sock rw,
+  /run/mysqld/mysqld.sock.lock rw,
+
+  /var/run/mysqld1/mysqld1.pid rw,
+  /var/run/mysqld1/mysqld1.sock rw,
+  /var/run/mysqld1/mysqld1.sock.lock rw,
+  /run/mysqld1/mysqld1.pid rw,
+  /run/mysqld1/mysqld1.sock rw,
+  /run/mysqld1/mysqld1.sock.lock rw,
+
+  /var/run/mysqld2/mysqld2.pid rw,
+  /var/run/mysqld2/mysqld2.sock rw,
+  /var/run/mysqld2/mysqld2.sock.lock rw,
+  /run/mysqld2/mysqld2.pid rw,
+  /run/mysqld2/mysqld2.sock rw,
+  /run/mysqld2/mysqld2.sock.lock rw,
+-------------------------------------------------------------------------------------
+sudo mysqld --initialize --user=mysql --datadir=/var/lib/mysql1 --explicit_defaults_for_timestamp
+
+sudo mkdir /var/lib/mysql1
+
+sudo chown -R mysql:mysql /var/lib/mysql1
+
+sudo chmod 0777 /var/lib/mysql1
+
+sudo systemctl restart apparmor.service 

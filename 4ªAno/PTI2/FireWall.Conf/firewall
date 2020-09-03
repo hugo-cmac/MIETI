@@ -1,0 +1,7 @@
+ip6tables -P FORWARD DROP
+ip6tables -A FORWARD -s 0/0 -i eth1 -d 2001:0690:2280:0820::1 -j ACCEPT
+ip6tables -A FORWARD -s 2001:0690:2280:0820::1 -i eth0 -d 0/0 -j ACCEPT
+
+ip6tables -P FORWARD DROP
+ip6tables -A FORWARD -s 0/0 -i eth1 -d 2001:0690:2280:0820::1 -j ACCEPT
+ip6tables -A FORWARD -s 2001:0690:2280:0820::1 -i eth0 -d 0/0 -j ACCEPT
