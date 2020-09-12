@@ -1,0 +1,204 @@
+node n4 {
+    type router
+    model PC
+    network-config {
+	hostname A1
+	!
+	interface eth0
+	 ip address 10.0.0.20/24
+	!
+    }
+    canvas c1
+    iconcoords {263.0 217.0}
+    labelcoords {263.0 249.0}
+    services {zebra DefaultRoute}
+    interface-peer {eth0 n1}
+}
+
+node n5 {
+    type router
+    model PC
+    network-config {
+	hostname A2
+	!
+	interface eth0
+	 ip address 10.0.0.21/24
+	!
+    }
+    canvas c1
+    iconcoords {267.0 314.0}
+    labelcoords {267.0 346.0}
+    services {zebra DefaultRoute}
+    interface-peer {eth0 n1}
+}
+
+node n6 {
+    type router
+    model PC
+    network-config {
+	hostname B2
+	!
+	interface eth0
+	 ip address 10.0.0.23/24
+	!
+    }
+    canvas c1
+    iconcoords {577.0 118.0}
+    labelcoords {577.0 150.0}
+    services {zebra DefaultRoute}
+    interface-peer {eth0 n2}
+}
+
+node n7 {
+    type router
+    model PC
+    network-config {
+	hostname B1
+	!
+	interface eth0
+	 ip address 10.0.0.22/24
+	!
+    }
+    canvas c1
+    iconcoords {337.0 119.0}
+    labelcoords {337.0 151.0}
+    services {zebra DefaultRoute}
+    interface-peer {eth0 n2}
+}
+
+node n8 {
+    type router
+    model PC
+    network-config {
+	hostname C1
+	!
+	interface eth0
+	 ip address 10.0.0.24/24
+	!
+    }
+    canvas c1
+    iconcoords {648.0 215.0}
+    labelcoords {648.0 247.0}
+    services {zebra DefaultRoute}
+    interface-peer {eth0 n3}
+}
+
+node n9 {
+    type router
+    model PC
+    network-config {
+	hostname C2
+	!
+	interface eth0
+	 ip address 10.0.0.25/24
+	!
+    }
+    canvas c1
+    iconcoords {650.0 313.0}
+    labelcoords {650.0 345.0}
+    services {zebra DefaultRoute}
+    interface-peer {eth0 n3}
+}
+
+node n1 {
+    type lanswitch
+    network-config {
+	hostname S1
+	!
+    }
+    canvas c1
+    iconcoords {362.0 264.0}
+    labelcoords {362.0 288.0}
+    interface-peer {e0 n4}
+    interface-peer {e1 n5}
+    interface-peer {e2 n2}
+}
+
+node n2 {
+    type hub
+    network-config {
+	hostname H1
+	!
+    }
+    canvas c1
+    iconcoords {458.0 173.0}
+    labelcoords {458.0 197.0}
+    interface-peer {e0 n1}
+    interface-peer {e1 n7}
+    interface-peer {e2 n6}
+    interface-peer {e3 n3}
+}
+
+node n3 {
+    type hub
+    network-config {
+	hostname H2
+	!
+    }
+    canvas c1
+    iconcoords {552.0 265.0}
+    labelcoords {552.0 289.0}
+    interface-peer {e0 n2}
+    interface-peer {e1 n8}
+    interface-peer {e2 n9}
+}
+
+link l1 {
+    nodes {n4 n1}
+    bandwidth 0
+}
+
+link l2 {
+    nodes {n5 n1}
+    bandwidth 0
+}
+
+link l3 {
+    nodes {n1 n2}
+    bandwidth 0
+}
+
+link l4 {
+    nodes {n2 n7}
+    bandwidth 0
+}
+
+link l5 {
+    nodes {n2 n6}
+    bandwidth 0
+}
+
+link l6 {
+    nodes {n2 n3}
+}
+
+link l7 {
+    nodes {n3 n8}
+    bandwidth 0
+}
+
+link l8 {
+    nodes {n3 n9}
+    bandwidth 0
+}
+
+canvas c1 {
+    name {Canvas1}
+}
+
+option global {
+    interface_names no
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+}
+
