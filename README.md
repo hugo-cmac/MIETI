@@ -29,7 +29,7 @@
 * Paradigmas da Programação: *Java programming - Travel simulation Managment Program*
   * [Project Folder](https://github.com/hugo-cmac/MIETI/tree/master/2%C2%BAAno/PP1/Projecto/src/com/Tuber/java)
 
-##### 3ºAno / Third  grade:
+**3ºAno / Third  grade:**
 * Laboratórios de Telecomunicações e Informática I: *Server-Client communication, file transfer through RS232, Web-Cloud*
   * [Server](https://github.com/hugo-cmac/MIETI/tree/master/3%C2%BAAno/LTI1/Server)
 
@@ -59,7 +59,7 @@
   * [Client](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SO/client.c)
   * [Project Report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SO/SO_G4.pdf)
 
-##### 4ºAno / Fourth grade:
+**4ºAno / Fourth grade:**
 * Criptografia: *Python cryptography tools and assignments*
   * [Fernet](https://github.com/hugo-cmac/MIETI/tree/master/4%C2%AAAno/Criptografia/Aula1/g1)
   * [Fernet+PBKDF2](https://github.com/hugo-cmac/MIETI/tree/master/4%C2%AAAno/Criptografia/Aula2/g2)
