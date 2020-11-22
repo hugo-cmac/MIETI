@@ -13,7 +13,7 @@
 **1ºAno / First grade:**
 * Métodos de Programação I: *Vigenère decryptor C program*
   * [Project](https://github.com/hugo-cmac/MIETI/blob/master/1%C2%BAAno/MP1/MP1_PROJETO.c)
-  * [Project report](https://github.com/hugo-cmac/MIETI/blob/master/1%C2%BAAno/MP1/projeto-MIETI1718-a80362.pdf)
+  * [Project Report](https://github.com/hugo-cmac/MIETI/blob/master/1%C2%BAAno/MP1/projeto-MIETI1718-a80362.pdf)
 
 * Métodos de Programação II: *Data Structures/Linked Lists*
   * [First Project](https://github.com/hugo-cmac/MIETI/blob/master/1%C2%BAAno/MP2/TP1/projecto.c)
@@ -38,26 +38,26 @@
 * Laboratórios de Telecomunicações e Informática II: *Physical activity monitoring project with Web, Arduíno sensor with UDP communication to manager on LAN and central info manager TCP communication*
   * [Arduíno Sensor](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/esp32/esp32.ino)
   * [Sensor Manager](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/concentrador.c)
-  * [Central info manager](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/gestor.c)
-  * [Project report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/RC-G3.pdf)
+  * [Central Info Manager](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/gestor.c)
+  * [Project Report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/RC-G3.pdf)
 
 * Redes de Computadores I: *Multiple network topologies developed on CORE*
   * [Project](https://github.com/hugo-cmac/MIETI/tree/master/3%C2%BAAno/Redes1/Topologias-CORE)
-  * [Project report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/Redes1/Relat%C3%B3rioRedes1.G9.pdf)
+  * [Project Report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/Redes1/Relat%C3%B3rioRedes1.G9.pdf)
 
 * Redes de Computadores II: *IPv4 forwarding C program(RAW Socket), network topology on CORE*
   * [Code](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/Redes2/Codigo/encaminhador_off.c)
   * [Network Topology](https://github.com/hugo-cmac/MIETI/tree/master/3%C2%BAAno/Redes2/Topologia-CORE)
-  * [Project report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/Redes2/G7-Relatorio.pdf)
+  * [Project Report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/Redes2/G7-Relatorio.pdf)
 
 * Sistemas Distribuídos: *Simple TCP chat, with concurrency JAVA tools*
   * [Project](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SD/Projeto/serverDist.java)
-  * [Project report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SD/Projeto/Relat%C3%B3rio-SD.pdf)
+  * [Project Report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SD/Projeto/Relat%C3%B3rio-SD.pdf)
 
 * Sistemas Operativos: *C program to schedule terminal commands, using FIFO's and exec's*
   * [Server](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SO/server.c)
   * [Client](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SO/client.c)
-  * [Project report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SO/SO_G4.pdf)
+  * [Project Report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SO/SO_G4.pdf)
 
 ##### 4ºAno / Fourth grade:
 * Criptografia: *Python cryptography tools and assignments*
@@ -74,7 +74,7 @@
 
 * Gestão de Redes: *SNMP understading, usage as a manager and agent, and MIB designing*
   * [First Assignment](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/Gest%C3%A3o%20de%20Redes/TP1/tp1.pdf)
-  * [Second Assignment](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/SO/client.c)
+  * [Second Assignment](https://github.com/hugo-cmac/MIETI/tree/master/4%C2%AAAno/Gest%C3%A3o%20de%20Redes/TP2)
     * [Web](https://github.com/hugo-cmac/MIETI/tree/master/4%C2%AAAno/Gest%C3%A3o%20de%20Redes/TP2/Web)
     * [Code](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/Gest%C3%A3o%20de%20Redes/TP2/tp2.c)
     * [Report](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/Gest%C3%A3o%20de%20Redes/TP2/tp2.pdf)
@@ -85,8 +85,12 @@
 
 * Tecnologias e Serviços Multimédia: *Compression and stream algorithms*
   * [First Assignment](https://github.com/hugo-cmac/MIETI/tree/master/4%C2%AAAno/TSM/TP1)
+    * [Code](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP1/FINAL/covid.c)
     * [Report](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP1/TP1_TSM.pdf)
-  * [Second Assignment](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP2/covid.c)
+  * [Second Assignment](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP2)
+    * [Code](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP2/covid.c)
     * [Report](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP2/TP2_TSM.pdf)
   * [Third Assignment](https://github.com/hugo-cmac/MIETI/tree/master/4%C2%AAAno/TSM/TP3)
+    * [Client Code](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP3/TSM_Client/Client.java)
+    * [Server Code](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP3/server.c)
     * [Report](https://github.com/hugo-cmac/MIETI/blob/master/4%C2%AAAno/TSM/TP3/TP3_TSM.pdf)
