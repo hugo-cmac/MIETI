@@ -20,7 +20,7 @@
   * [Second Project](https://github.com/hugo-cmac/MIETI/blob/master/1%C2%BAAno/MP2/TP2/tp2.c)
   * [Third Project](https://github.com/hugo-cmac/MIETI/blob/master/1%C2%BAAno/MP2/Tp3/tp3.c)
 
-##### 2ºAno / Second grade:
+**2ºAno / Second grade:**
 * Micro-Controladores: *Embedded systems Assembly programming - 8051 Microcontroller*
   * [First Project](https://github.com/hugo-cmac/MIETI/blob/master/2%C2%BAAno/MicroControladores/Guia2/lixo.a51)
   * [Second Project](https://github.com/hugo-cmac/MIETI/blob/master/2%C2%BAAno/MicroControladores/Guia3/streetz.a51)
