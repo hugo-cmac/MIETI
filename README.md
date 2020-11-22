@@ -38,7 +38,7 @@
 * Laboratórios de Telecomunicações e Informática II: *Physical activity monitoring project with Web, Arduíno sensor with UDP communication to manager on LAN and central info manager TCP communication*
   * [Arduíno Sensor](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/esp32/esp32.ino)
   * [Sensor Manager](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/concentrador.c)
-  * [Sentral info manager](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/gestor.c)
+  * [Central info manager](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/gestor.c)
   * [Project report](https://github.com/hugo-cmac/MIETI/blob/master/3%C2%BAAno/LTI2/RC-G3.pdf)
 
 * Redes de Computadores I: *Multiple network topologies developed on CORE*
